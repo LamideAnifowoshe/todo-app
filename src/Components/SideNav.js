@@ -5,14 +5,15 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Header from "./Header";
+import ToDos from "./ToDos";
 
 const SideNav = () => {
   return (
     <div>
-      <Container fluid>
-        <Row>
+      <Container fluid={true}>
+        <Row noGutters={true}>
           <Col sm={2}>
-            <div className="list-group-flush pt-5 mt-5 ps-5" id="sidenav">
+            <div className="list-group-flush ps-4" id="sidenav">
               <a href="/" className="list-group-item list-group-item-action">
                 <FontAwesomeIcon icon={faBell} /> Dashboard
               </a>
@@ -31,8 +32,9 @@ const SideNav = () => {
             </div>
           </Col>
 
-          <Col sm={6}>
+          <Col sm={10}>
             <Header />
+            <ToDos />
           </Col>
         </Row>
       </Container>
