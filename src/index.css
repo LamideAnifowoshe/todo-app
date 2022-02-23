@@ -65,9 +65,9 @@ th {
   text-align: center;
 }
 
-h6 {
+h3 {
   width: 35px;
-  padding-top: 44px;
+  padding-top: 40px;
   left: 329px;
   top: 320px;
   font-family: Open Sans;
@@ -76,4 +76,34 @@ h6 {
   font-size: 30px !important;
   line-height: 41px !important;
   text-align: center;
+}
+
+h6 {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px !important;
+  line-height: 22px;
+  padding-top: 83px;
+}
+
+p {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
+  padding-top: 75px;
+  text-align: left;
+}
+
+Button {
+  position: absolute;
+  width: 283px;
+  height: 59.89px;
+  left: 1064px;
+  top: 858px;
+  background-color: #053858 !important;
+  color: white;
+  border-radius: 30px;
 }

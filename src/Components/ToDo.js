@@ -1,10 +1,12 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 
 const ToDo = ({ todos }) => {
   return (
     <div>
-      <Table borderless className="mt-4">
+      <Table borderless responsive>
         <thead>
           <tr>
             <th></th>
@@ -12,7 +14,7 @@ const ToDo = ({ todos }) => {
             <th> Start Time</th>
             <th> End Time</th>
             <th> Duration</th>
-            <th>#</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -20,7 +22,7 @@ const ToDo = ({ todos }) => {
           <tr>
             <td>
               {todos.map((todo) => (
-                <h6 key={todo.id}>{todo.date}</h6>
+                <h3 key={todo.id}>{todo.date}</h3>
               ))}
             </td>
             <td>
@@ -43,7 +45,13 @@ const ToDo = ({ todos }) => {
                 <h6 key={todo.id}>{todo.date}</h6>
               ))}
             </td>
-            <td></td>
+            <td>
+              {todos.map((todo) => (
+                <h6>
+                  <FontAwesomeIcon key={todo.id} icon={faEllipsisH} />
+                </h6>
+              ))}
+            </td>
           </tr>
         </tbody>
       </Table>

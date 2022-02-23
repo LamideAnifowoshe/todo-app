@@ -3,6 +3,10 @@ import NavBar from "./Components/NavBar";
 import Dashboard from "./Components/Dashboard";
 import { useState } from "react";
 
+const addToDo = (id) => {
+  console.log("add", id);
+};
+
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -49,7 +53,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Dashboard todos={todos} />
+      <Dashboard todos={todos} onAdd={addToDo} />
     </div>
   );
 }
