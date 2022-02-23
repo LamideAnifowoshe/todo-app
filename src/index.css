@@ -96,14 +96,3 @@ p {
   padding-top: 75px;
   text-align: left;
 }
-
-Button {
-  position: absolute;
-  width: 283px;
-  height: 59.89px;
-  left: 1064px;
-  top: 858px;
-  background-color: #053858 !important;
-  color: white;
-  border-radius: 30px;
-}
