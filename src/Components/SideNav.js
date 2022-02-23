@@ -1,25 +1,28 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faTasks } from "@fortawesome/free-solid-svg-icons";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 const SideNav = () => {
   return (
     <div>
       <div className="list-group-flush ps-4" id="sidenav">
         <a href="/" className="list-group-item list-group-item-action">
-          <FontAwesomeIcon icon={faBell} /> Dashboard
+          <FontAwesomeIcon icon={faThLarge} /> Dashboard
         </a>
 
         <a href="/" className="list-group-item list-group-item-action">
-          <FontAwesomeIcon icon={faBell} /> All To-Dos
+          <FontAwesomeIcon icon={faTasks} /> All To-Dos
         </a>
 
         <a href="/" className="list-group-item list-group-item-action">
-          <FontAwesomeIcon icon={faBell} /> Profile
+          <FontAwesomeIcon icon={faUser} /> Profile
         </a>
 
         <a href="/" className="list-group-item list-group-item-action">
-          <FontAwesomeIcon icon={faBell} /> Settings
+          <FontAwesomeIcon icon={faCog} /> Settings
         </a>
       </div>
     </div>
