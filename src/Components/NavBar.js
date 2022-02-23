@@ -21,6 +21,7 @@ const NavBar = () => {
           <img src={Ellipse} className="navbar-brand" />
         </div>
       </nav>
+      <h1>Good morning, Jason</h1>
     </div>
   );
 };
