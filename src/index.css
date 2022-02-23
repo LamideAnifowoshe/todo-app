@@ -31,6 +31,7 @@ h1 {
   line-height: 65px;
   position: absolute;
   top: 103px;
+  left: 240px;
 }
 
 h5 {
@@ -44,7 +45,7 @@ h5 {
 }
 
 #sidenav {
-  margin-top: 311px;
+  margin-top: 251px;
 }
 
 .list-group-item {
@@ -53,6 +54,7 @@ h5 {
   font-weight: 600;
   font-size: 20px;
   line-height: 27px;
+  padding-top: 60px !important;
 }
 
 th {
@@ -60,5 +62,18 @@ th {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
+  text-align: center;
+}
+
+h6 {
+  width: 35px;
+  padding-top: 44px;
+  left: 329px;
+  top: 320px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  line-height: 41px !important;
   text-align: center;
 }
