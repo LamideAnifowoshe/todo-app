@@ -20,6 +20,8 @@ function App() {
       start: "12:51pm",
       end: "1:30pm",
       duration: "39 mins",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus sem amet diam. Id praesent sit faucibus cursus euismod dolor vitae. Feugiat nibh ut aliquam orci id sed pretium elementum. Sed ac nunc amet, mattis gravida metus",
     },
 
     {
@@ -30,6 +32,8 @@ function App() {
       start: "5:50pm",
       end: "6:00pm",
       duration: "10 mins",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus sem amet diam. Id praesent sit faucibus cursus euismod dolor vitae. Feugiat nibh ut aliquam orci id sed pretium elementum. Sed ac nunc amet, mattis gravida metus",
     },
 
     {
@@ -40,6 +44,8 @@ function App() {
       start: "08:00pm",
       end: "11:00pm",
       duration: "03 hrs",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus sem amet diam. Id praesent sit faucibus cursus euismod dolor vitae. Feugiat nibh ut aliquam orci id sed pretium elementum. Sed ac nunc amet, mattis gravida metus",
     },
 
     {
@@ -50,6 +56,8 @@ function App() {
       start: "10:30am",
       end: "12:00pm",
       duration: "1hr 30mins",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus sem amet diam. Id praesent sit faucibus cursus euismod dolor vitae. Feugiat nibh ut aliquam orci id sed pretium elementum. Sed ac nunc amet, mattis gravida metus",
     },
   ]);
 
