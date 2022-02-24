@@ -4,26 +4,27 @@ import { faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faTasks } from "@fortawesome/free-solid-svg-icons";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   return (
     <div>
       <div className="list-group-flush ps-4" id="sidenav">
-        <a href="/" className="list-group-item list-group-item-action">
+        <Link to="/" className="list-group-item list-group-item-action">
           <FontAwesomeIcon icon={faThLarge} /> Dashboard
-        </a>
+        </Link>
 
-        <a href="/" className="list-group-item list-group-item-action">
+        <Link to="/AllToDo" className="list-group-item list-group-item-action">
           <FontAwesomeIcon icon={faTasks} /> All To-Dos
-        </a>
+        </Link>
 
-        <a href="/" className="list-group-item list-group-item-action">
+        <Link to="/Profile" className="list-group-item list-group-item-action">
           <FontAwesomeIcon icon={faUser} /> Profile
-        </a>
+        </Link>
 
-        <a href="/" className="list-group-item list-group-item-action">
+        <Link to="/Settings" className="list-group-item list-group-item-action">
           <FontAwesomeIcon icon={faCog} /> Settings
-        </a>
+        </Link>
       </div>
     </div>
   );
