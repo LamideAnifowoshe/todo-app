@@ -1,11 +1,14 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Dashboard from "./Components/Dashboard";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import AllToDo from "./Components/AllToDo";
 import { useState } from "react";
-
-const addToDo = (id) => {
-  console.log("add", id);
-};
+import SideNav from "./Components/SideNav";
+import NewToDo from "./Components/NewToDo";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -49,11 +52,35 @@ function App() {
       duration: "1hr 30mins",
     },
   ]);
+  console.log("todos", todos);
+  const addToDo = (todo) => {
+    const id = Math.floor(Math.random() * 100);
+
+    const newTodo = { id, ...todo };
+    console.log("todo", newTodo);
+    setTodos([...todos, newTodo]);
+  };
 
   return (
     <div>
       <NavBar />
-      <Dashboard todos={todos} onAdd={addToDo} />
+      <Container fluid={true}>
+        <Row>
+          <Col sm={2}>
+            <SideNav />
+          </Col>
+          <Col sm={10}>
+            <Routes>
+              <Route
+                path="/"
+                element={<Dashboard todos={todos} onAdd={addToDo} />}
+              />
+              <Route path="/AllToDo" element={<AllToDo />} />
+            </Routes>
+          </Col>
+          <NewToDo onAdd={addToDo} />
+        </Row>
+      </Container>
     </div>
   );
 }
