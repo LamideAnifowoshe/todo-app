@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import AddToDo from "./AddToDo";
 
-const NewToDo = ({ onAdd, subActivity }) => {
+const NewToDo = ({ onAdd }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -30,7 +30,6 @@ const NewToDo = ({ onAdd, subActivity }) => {
         onShow={handleShow}
         show={show}
         onAdd={onAdd}
-        subActivity={subActivity}
       />
     </div>
   );
