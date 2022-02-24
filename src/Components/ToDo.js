@@ -9,8 +9,8 @@ const ToDo = ({ todos }) => {
       <Table borderless responsive>
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th> Date</th>
+            <th> Activity</th>
             <th> Start Time</th>
             <th> End Time</th>
             <th> Duration</th>
@@ -19,40 +19,30 @@ const ToDo = ({ todos }) => {
         </thead>
 
         <tbody>
-          <tr>
-            <td>
-              {todos.map((todo) => (
-                <h3 key={todo.id}>{todo.date}</h3>
-              ))}
-            </td>
-            <td>
-              {todos.map((todo) => (
-                <p key={todo.id}>{todo.activity}</p>
-              ))}
-            </td>
-            <td>
-              {todos.map((todo) => (
-                <h6 key={todo.id}>{todo.start}</h6>
-              ))}
-            </td>
-            <td>
-              {todos.map((todo) => (
-                <h6 key={todo.id}>{todo.end}</h6>
-              ))}
-            </td>
-            <td>
-              {todos.map((todo) => (
-                <h6 key={todo.id}>{todo.date}</h6>
-              ))}
-            </td>
-            <td>
-              {todos.map((todo) => (
+          {todos.map((todo) => (
+            <tr key={todo.id}>
+              <td>
+                <h3>{todo.date}</h3>
+              </td>
+              <td>
+                <p>{todo.activity}</p>
+              </td>
+              <td>
+                <h6>{todo.start}</h6>
+              </td>
+              <td>
+                <h6>{todo.end}</h6>
+              </td>
+              <td>
+                <h6>{todo.duration}</h6>
+              </td>
+              <td>
                 <h6>
-                  <FontAwesomeIcon key={todo.id} icon={faEllipsisH} />
+                  <FontAwesomeIcon icon={faEllipsisH} />
                 </h6>
-              ))}
-            </td>
-          </tr>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>
