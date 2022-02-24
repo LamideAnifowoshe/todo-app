@@ -52,12 +52,10 @@ function App() {
       duration: "1hr 30mins",
     },
   ]);
-  console.log("todos", todos);
+
   const addToDo = (todo) => {
     const id = Math.floor(Math.random() * 100);
-
     const newTodo = { id, ...todo };
-    console.log("todo", newTodo);
     setTodos([...todos, newTodo]);
   };
 
@@ -75,7 +73,7 @@ function App() {
                 path="/"
                 element={<Dashboard todos={todos} onAdd={addToDo} />}
               />
-              <Route path="/AllToDo" element={<AllToDo />} />
+              <Route path="/AllToDo" element={<AllToDo todos={todos} />} />
             </Routes>
           </Col>
           <NewToDo onAdd={addToDo} />
