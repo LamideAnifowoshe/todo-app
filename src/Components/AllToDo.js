@@ -10,12 +10,10 @@ const AllToDo = ({ todos }) => {
       <Tab.Container defaultActiveKey="first">
         <Nav
           variant="pills"
-          className="flex-column"
-          n
+          className="mb-3"
           style={{
             marginTop: "263px",
             width: "20%",
-            backgroundColor: "#053858 !important",
           }}
         >
           <Nav.Item>
