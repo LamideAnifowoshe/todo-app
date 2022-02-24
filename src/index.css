@@ -48,6 +48,10 @@ h5 {
   margin-top: 251px;
 }
 
+.list-group-item:active {
+  color: brown !important;
+}
+
 .list-group-item {
   font-family: Open Sans;
   font-style: normal;
