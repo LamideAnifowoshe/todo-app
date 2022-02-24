@@ -1,17 +1,34 @@
 import React from "react";
-import ModalBody from "react-bootstrap/ModalBody";
-import ModalTitle from "react-bootstrap/ModalTitle";
-import ModalHeader from "react-bootstrap/ModalHeader";
-import ModalDialog from "react-bootstrap/ModalDialog";
-import CloseButton from "react-bootstrap/CloseButton";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
 const AddToDo = ({ onClose, onShow, show, onAdd }) => {
-  const [text, setText] = useState("");
-  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [activity, setActivity] = useState("");
+  const [subactivity, setSubActivity] = useState("");
+  const [duration, setDuration] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (!date) {
+      alert("Please add a task");
+      return;
+    }
+
+    onAdd({ date, start, end, activity, subactivity, duration });
+
+    setDate("");
+    setStart("");
+    setEnd("");
+    setActivity("");
+    setSubActivity("");
+    setDuration("");
+  };
 
   return (
     <div>
@@ -29,30 +46,28 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
         </Modal.Header>
 
         <Modal.Body>
-          <Form>
+          <Form onSubmit={onSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
-              <Form.Label>Task Title</Form.Label>
+              <Form.Label>Date</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Play Chess with Messi"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
               />
-
               <Form.Label>Start Time</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="12:05pm"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
+                value={start}
+                onChange={(e) => setStart(e.target.value)}
               />
-
               <Form.Label>End Time</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="1:30pm"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
+                value={end}
+                onChange={(e) => setEnd(e.target.value)}
               />
             </Form.Group>
 
@@ -61,8 +76,8 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
               <Form.Control
                 type="textarea"
                 placeholder="Show the football GOAT whuz da boss"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
+                value={activity}
+                onChange={(e) => setActivity(e.target.value)}
                 style={{ height: "100px" }}
               />
             </Form.Group>
@@ -72,27 +87,28 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
               <Form.Control
                 type="text"
                 placeholder="Play 1st round Chess with Messi"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
+                value={subactivity}
+                onChange={(e) => setSubActivity(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label>Sub-Task Duration</Form.Label>
-              <Form.Control type="text" placeholder="None" /> value={time}
-              onChange={(e) => setTime(e.target.value)}
+              <Form.Control
+                type="text"
+                placeholder="None"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+              />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Add Sub-task
-            </Button>
+            <Button variant="primary">Add Sub-task</Button>
+            <Modal.Footer>
+              <Button variant="secondary" type="submit" onClick={onSubmit}>
+                Save
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={onAdd}>
-            Save
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );
