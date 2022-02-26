@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-const AddToDo = ({ onClose, onShow, show, onAdd }) => {
+const AddToDo = ({ onClose, onShow, show, onAdd, onSub }) => {
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
@@ -31,7 +31,7 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
     setActivity("");
     setSubActivity("");
     setDuration("");
-  };
+
 
   return (
     <div>
@@ -84,6 +84,7 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
                     />
                   </Form.Group>
                   <Button
+                    onClick={onSub}
                     variant="primary"
                     style={{
                       backgroundColor: "#FFFFFF",
@@ -155,5 +156,6 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
     </div>
   );
 };
+
 
 export default AddToDo;
