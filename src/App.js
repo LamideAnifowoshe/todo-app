@@ -11,6 +11,8 @@ import SideNav from "./Components/SideNav";
 import NewToDo from "./Components/NewToDo";
 
 function App() {
+  const [todo, setTodo] = useState("");
+  const [subTodo, setSubTodo] = useState("");
   const [todos, setTodos] = useState([
     {
       id: 0,
@@ -67,6 +69,17 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const toDoDetails = (id) => {
+    const details = todos.find((todo) => todo.id === id);
+    console.log(details);
+    setTodo(details);
+  };
+
+  const addSubtask = () => {
+    const sub = setTodos([...todos, { subactivity: "" }]);
+    console.log(sub);
+  };
+
   return (
     <div>
       <NavBar />
@@ -79,12 +92,19 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={<Dashboard todos={todos} onAdd={addToDo} />}
+                element={
+                  <Dashboard
+                    todos={todos}
+                    onAdd={addToDo}
+                    onToggle={toDoDetails}
+                    todo={todo}
+                  />
+                }
               />
               <Route path="/AllToDo" element={<AllToDo todos={todos} />} />
             </Routes>
           </Col>
-          <NewToDo onAdd={addToDo} />
+          <NewToDo onAdd={addToDo} onSub={addSubtask} />
         </Row>
       </Container>
     </div>
