@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import AddToDo from "./AddToDo";
 
-const NewToDo = ({ onAdd }) => {
+const NewToDo = ({ onAdd, onSub }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -30,6 +30,7 @@ const NewToDo = ({ onAdd }) => {
         onShow={handleShow}
         show={show}
         onAdd={onAdd}
+        onSub={onSub}
       />
     </div>
   );
