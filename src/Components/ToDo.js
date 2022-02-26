@@ -1,9 +1,18 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import ToDoDetails from "./ToDoDetails";
 
-const ToDo = ({ todos }) => {
+const ToDo = ({ todos, onToggle }) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = (id) => {
+    setShow(true);
+    onToggle(id);
+  };
   return (
     <div>
       <Table borderless responsive>
@@ -38,13 +47,17 @@ const ToDo = ({ todos }) => {
               </td>
               <td>
                 <h6>
-                  <FontAwesomeIcon icon={faEllipsisH} />
+                  <FontAwesomeIcon
+                    icon={faEllipsisH}
+                    onClick={() => handleShow(todo.id)}
+                  />
                 </h6>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
+      <ToDoDetails onClose={handleClose} onShow={handleShow} show={show} />
     </div>
   );
 };
