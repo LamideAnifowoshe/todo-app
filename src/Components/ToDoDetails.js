@@ -1,17 +1,13 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
-const ToDoDetails = () => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+const ToDoDetails = ({ onClose, show }) => {
   return (
     <div>
       {" "}
@@ -30,26 +26,20 @@ const ToDoDetails = () => {
 
         <Modal.Body>
           <Container>
-            <Form onSubmit={onSubmit}>
+            <Form>
               <Row>
                 <Col sm={8}>
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Task Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                    />
+                    <Form.Control type="textarea" disabled />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Task Description</Form.Label>
                     <Form.Control
                       type="textarea"
-                      placeholder="Show the football GOAT whuz da boss"
-                      value={activity}
-                      onChange={(e) => setActivity(e.target.value)}
-                      style={{ height: "100px" }}
+                      placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus sem amet diam. Id praesent sit faucibus cursus euismod dolor vitae. Feugiat nibh ut aliquam orci id sed pretium elementum. Sed ac nunc amet, mattis gravida metus."
+                      disabled
                     />
                   </Form.Group>
 
@@ -58,8 +48,6 @@ const ToDoDetails = () => {
                     <Form.Control
                       type="text"
                       placeholder="Play 1st round Chess with Messi"
-                      value={subactivity}
-                      onChange={(e) => setSubActivity(e.target.value)}
                     />
                   </Form.Group>
                 </Col>
@@ -67,32 +55,17 @@ const ToDoDetails = () => {
                 <Col sm={4}>
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Task Countdown Timer</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="12:05pm"
-                      value={start}
-                      onChange={(e) => setStart(e.target.value)}
-                    />
+                    <Form.Control type="text" placeholder="12:05pm" disabled />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="1:30pm"
-                      value={end}
-                      onChange={(e) => setEnd(e.target.value)}
-                    />
+                    <Form.Control type="text" placeholder="1:30pm" />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="None"
-                      value={duration}
-                      onChange={(e) => setDuration(e.target.value)}
-                    />
+                    <Form.Control type="text" placeholder="None" />
                   </Form.Group>
                 </Col>
 
@@ -100,7 +73,6 @@ const ToDoDetails = () => {
                   <Button
                     variant="secondary"
                     type="submit"
-                    onClick={onDelete}
                     style={{
                       backgroundColor: "#053858",
                       borderRadius: "30px",
@@ -113,7 +85,6 @@ const ToDoDetails = () => {
                   <Button
                     variant="secondary"
                     type="submit"
-                    onClick={onSubmit}
                     style={{
                       backgroundColor: "#053858",
                       borderRadius: "30px",
