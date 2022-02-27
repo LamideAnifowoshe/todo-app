@@ -7,13 +7,14 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-const AddToDo = ({ onClose, onShow, show, onAdd, onSub }) => {
+const AddToDo = ({ onClose, onShow, show, onAdd }) => {
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [activity, setActivity] = useState("");
   const [subactivity, setSubActivity] = useState("");
   const [duration, setDuration] = useState("");
+  const [formValues, setFormValues] = useState([{ sub: ""}])
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -23,15 +24,32 @@ const AddToDo = ({ onClose, onShow, show, onAdd, onSub }) => {
       return;
     }
 
-    onAdd({ date, start, end, activity, subactivity, duration });
+    const subActivities = formValues.map((item) => {
+      return {
+        activity: item.sub
+      }
+    })
+
+    onAdd({ date, start, end, activity, subActivities, duration });
 
     setDate("");
     setStart("");
     setEnd("");
     setActivity("");
     setSubActivity("");
+    setFormValues([{ sub: ""}])
     setDuration("");
+  };
 
+  const addSubTaskField = () => {
+    return setFormValues([...formValues, {sub: ""}])
+  }
+
+  const handleChange = (i, e) => {
+    let newFormValues = [...formValues];
+    newFormValues[i][e.target.name] = e.target.value;
+    setFormValues(newFormValues);
+  }
 
   return (
     <div>
@@ -74,17 +92,26 @@ const AddToDo = ({ onClose, onShow, show, onAdd, onSub }) => {
                     />
                   </Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formBasicText">
-                    <Form.Label>Sub-Task</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Play 1st round Chess with Messi"
-                      value={subactivity}
-                      onChange={(e) => setSubActivity(e.target.value)}
-                    />
-                  </Form.Group>
+                  <div>
+                  {
+                    formValues.map((form, index) => {
+                      return (
+                        <Form.Group key={index}>
+                        <Form.Label>Sub-Task</Form.Label>
+                        <Form.Control
+                        type="text"
+                        placeholder="Play 1st round Chess with Messi"
+                        value={form.sub || ""}
+                        name="sub"
+                        onChange={e => handleChange(index, e)}
+                        />
+                        </Form.Group>
+                      )
+                    })
+                  }
+                  </div>
                   <Button
-                    onClick={onSub}
+                  onClick={() => addSubTaskField()}
                     variant="primary"
                     style={{
                       backgroundColor: "#FFFFFF",
@@ -156,6 +183,5 @@ const AddToDo = ({ onClose, onShow, show, onAdd, onSub }) => {
     </div>
   );
 };
-
 
 export default AddToDo;
