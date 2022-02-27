@@ -18,7 +18,7 @@ function App() {
       id: 0,
       date: "14 Nov",
       activity: "Play Chess with Messi",
-      subactivity: "Show the football GOAT whuz da boss",
+      subActivities: [{activity: "Show the football GOAT whuz da boss"}],
       start: "12:51pm",
       end: "1:30pm",
       duration: "39 mins",
@@ -30,7 +30,7 @@ function App() {
       id: 1,
       date: "02 Dec",
       activity: "Go Skydiving with Kal-el",
-      subactivity: "Who's more fly? Me! That's who",
+      subActivities: [{activity: "Who's more fly? Me! That's who"}],
       start: "5:50pm",
       end: "6:00pm",
       duration: "10 mins",
@@ -42,7 +42,7 @@ function App() {
       id: 2,
       date: "08 Dec",
       activity: "Visit Mum",
-      subactivity: "Order flight tickets to California",
+      subActivities: [{activity: "Order flight tickets to California"}],
       start: "08:00pm",
       end: "11:00pm",
       duration: "03 hrs",
@@ -54,7 +54,7 @@ function App() {
       id: 3,
       date: "25 Dec",
       activity: "Christmas at Sue's prepare",
-      subactivity: "Christmas gifts and wrappers",
+      subActivities: [{activity:"Christmas gifts and wrappers"}],
       start: "10:30am",
       end: "12:00pm",
       duration: "1hr 30mins",
@@ -75,10 +75,7 @@ function App() {
     setTodo(details);
   };
 
-  const addSubtask = () => {
-    const sub = setTodos([...todos, { subactivity: "" }]);
-    console.log(sub);
-  };
+
 
   return (
     <div>
@@ -104,7 +101,7 @@ function App() {
               <Route path="/AllToDo" element={<AllToDo todos={todos} />} />
             </Routes>
           </Col>
-          <NewToDo onAdd={addToDo} onSub={addSubtask} />
+          <NewToDo onAdd={addToDo} />
         </Row>
       </Container>
     </div>
