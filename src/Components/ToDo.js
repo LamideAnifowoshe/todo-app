@@ -34,7 +34,14 @@ const ToDo = ({ todos, onToggle }) => {
                 <h3>{todo.date}</h3>
               </td>
               <td>
-                <p>{todo.activity}</p>
+              <div>
+              <p>{todo.activity}</p>
+              </div>
+               <div>
+               {todo.subActivities && todo.subActivities.map((item, index) => (
+                 <span key={index}>{item.activity}</span>
+               ))}
+               </div>
               </td>
               <td>
                 <h6>{todo.start}</h6>
