@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import ToDoDetails from "./ToDoDetails";
 
-const ToDo = ({ todos, onToggle }) => {
+const ToDo = ({ todos, onToggle, onDelete }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -34,14 +34,15 @@ const ToDo = ({ todos, onToggle }) => {
                 <h3>{todo.date}</h3>
               </td>
               <td>
-              <div>
-              <p>{todo.activity}</p>
-              </div>
-               <div>
-               {todo.subActivities && todo.subActivities.map((item, index) => (
-                 <span key={index}>{item.activity}</span>
-               ))}
-               </div>
+                <div>
+                  <p>{todo.activity}</p>
+                </div>
+                <div>
+                  {todo.subActivities &&
+                    todo.subActivities.map((item, index) => (
+                      <div key={index}>{item.activity}</div>
+                    ))}
+                </div>
               </td>
               <td>
                 <h6>{todo.start}</h6>
@@ -64,7 +65,12 @@ const ToDo = ({ todos, onToggle }) => {
           ))}
         </tbody>
       </Table>
-      <ToDoDetails onClose={handleClose} onShow={handleShow} show={show} />
+      <ToDoDetails
+        onClose={handleClose}
+        onShow={handleShow}
+        show={show}
+        onDelete={onDelete}
+      />
     </div>
   );
 };

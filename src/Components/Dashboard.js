@@ -3,11 +3,11 @@ import ToDo from "./ToDo";
 import SideNav from "./SideNav";
 import NewToDo from "./NewToDo";
 
-const Dashboard = ({ todos, onAdd, onToggle, todo }) => {
+const Dashboard = ({ todos, onAdd, onToggle, todo, onDelete }) => {
   return (
     <div>
       <h5 className="ps-4">Here Are Your Tasks For Today</h5>
-      <ToDo todos={todos} onToggle={onToggle} todo={todo} />
+      <ToDo todos={todos} onToggle={onToggle} todo={todo} onDelete={onDelete} />
     </div>
   );
 };
