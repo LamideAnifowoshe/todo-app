@@ -3,9 +3,10 @@ import Table from "react-bootstrap/Table";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import ToDoDetails from "./ToDoDetails";
 
-const ToDo = ({ todos, onToggle, onDelete }) => {
+const ToDo = ({ todos, onToggle, onDelete, todo }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -23,6 +24,7 @@ const ToDo = ({ todos, onToggle, onDelete }) => {
             <th> Start Time</th>
             <th> End Time</th>
             <th> Duration</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -58,6 +60,14 @@ const ToDo = ({ todos, onToggle, onDelete }) => {
                   <FontAwesomeIcon
                     icon={faEllipsisH}
                     onClick={() => handleShow(todo.id)}
+                  />
+                </h6>
+              </td>
+              <td>
+                <h6>
+                  <FontAwesomeIcon
+                    icon={faTrashAlt}
+                    onClick={() => onDelete(todo.id)}
                   />
                 </h6>
               </td>
