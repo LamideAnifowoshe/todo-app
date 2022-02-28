@@ -8,6 +8,22 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 const ToDoDetails = ({ onClose, show, onDelete }) => {
+  const [time, setTime] = useState(0);
+  const [timerOn, setTimerOn] = useState(false);
+
+  React.useEffect(() => {
+    let interval = null;
+
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else if (!timerOn) {
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval);
+  }, [timerOn]);
   return (
     <div>
       {" "}
@@ -55,7 +71,29 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
                 <Col sm={4}>
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Task Countdown Timer</Form.Label>
-                    <Form.Control type="text" placeholder="12:05pm" disabled />
+                    <div>
+                      <span>
+                        {("0" + Math.floor((time / 60000) % 60)).slice(-2)}:
+                      </span>
+                      <span>
+                        {("0" + Math.floor((time / 1000) % 60)).slice(-2)}:
+                      </span>
+                      <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
+                    </div>
+                    <div>
+                      {!timerOn && time === 0 && (
+                        <Button onClick={() => setTimerOn(true)}>Start</Button>
+                      )}
+                      {timerOn && (
+                        <Button onClick={() => setTimerOn(false)}>Stop</Button>
+                      )}
+                      {!timerOn && time > 0 && (
+                        <Button onClick={() => setTime(0)}>Reset</Button>
+                      )}
+                      {!timerOn && time > 0 && (
+                        <Button onClick={() => setTimerOn(true)}>Resume</Button>
+                      )}
+                    </div>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicText">
@@ -72,15 +110,14 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
                 <Modal.Footer>
                   <Button
                     variant="secondary"
-                    type="delete"
-                    
+                    type="submit"
                     style={{
                       backgroundColor: "#053858",
                       borderRadius: "30px",
                       width: "144px",
                     }}
                   >
-                    Delete task
+                    Add sub-task
                   </Button>
                 </Modal.Footer>
               </Row>
