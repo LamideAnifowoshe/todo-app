@@ -82,16 +82,40 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
                     </div>
                     <div>
                       {!timerOn && time === 0 && (
-                        <Button onClick={() => setTimerOn(true)}>Start</Button>
+                        <Button
+                          className="btn-light"
+                          style={{ color: "darkblue" }}
+                          onClick={() => setTimerOn(true)}
+                        >
+                          Start
+                        </Button>
                       )}
                       {timerOn && (
-                        <Button onClick={() => setTimerOn(false)}>Stop</Button>
+                        <Button
+                          className="btn-light"
+                          style={{ color: "darkblue" }}
+                          onClick={() => setTimerOn(false)}
+                        >
+                          Stop
+                        </Button>
                       )}
                       {!timerOn && time > 0 && (
-                        <Button onClick={() => setTime(0)}>Reset</Button>
+                        <Button
+                          className="btn-light"
+                          style={{ color: "darkblue" }}
+                          onClick={() => setTime(0)}
+                        >
+                          Reset
+                        </Button>
                       )}
                       {!timerOn && time > 0 && (
-                        <Button onClick={() => setTimerOn(true)}>Resume</Button>
+                        <Button
+                          className="btn-light"
+                          style={{ color: "darkblue" }}
+                          onClick={() => setTimerOn(true)}
+                        >
+                          Resume
+                        </Button>
                       )}
                     </div>
                   </Form.Group>
