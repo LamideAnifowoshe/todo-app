@@ -21,7 +21,7 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>To-do details</Modal.Title>
+          <Modal.Title>Todo details</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -73,7 +73,7 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
                   <Button
                     variant="secondary"
                     type="delete"
-                    onClick={() => onDelete(todo.id)}
+                    
                     style={{
                       backgroundColor: "#053858",
                       borderRadius: "30px",
