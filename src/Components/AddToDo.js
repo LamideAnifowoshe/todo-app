@@ -14,7 +14,7 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
   const [activity, setActivity] = useState("");
   const [subactivity, setSubActivity] = useState("");
   const [duration, setDuration] = useState("");
-  const [formValues, setFormValues] = useState([{ sub: ""}])
+  const [formValues, setFormValues] = useState([{ sub: "" }]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -26,9 +26,9 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
 
     const subActivities = formValues.map((item) => {
       return {
-        activity: item.sub
-      }
-    })
+        activity: item.sub,
+      };
+    });
 
     onAdd({ date, start, end, activity, subActivities, duration });
 
@@ -37,19 +37,19 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
     setEnd("");
     setActivity("");
     setSubActivity("");
-    setFormValues([{ sub: ""}])
+    setFormValues([{ sub: "" }]);
     setDuration("");
   };
 
   const addSubTaskField = () => {
-    return setFormValues([...formValues, {sub: ""}])
-  }
+    return setFormValues([...formValues, { sub: "" }]);
+  };
 
   const handleChange = (i, e) => {
     let newFormValues = [...formValues];
     newFormValues[i][e.target.name] = e.target.value;
     setFormValues(newFormValues);
-  }
+  };
 
   return (
     <div>
@@ -93,25 +93,23 @@ const AddToDo = ({ onClose, onShow, show, onAdd }) => {
                   </Form.Group>
 
                   <div>
-                  {
-                    formValues.map((form, index) => {
+                    {formValues.map((form, index) => {
                       return (
                         <Form.Group key={index}>
-                        <Form.Label>Sub-Task</Form.Label>
-                        <Form.Control
-                        type="text"
-                        placeholder="Play 1st round Chess with Messi"
-                        value={form.sub || ""}
-                        name="sub"
-                        onChange={e => handleChange(index, e)}
-                        />
+                          <Form.Label>Sub-Task</Form.Label>
+                          <Form.Control
+                            type="text"
+                            placeholder="Play 1st round Chess with Messi"
+                            value={form.sub || ""}
+                            name="sub"
+                            onChange={(e) => handleChange(index, e)}
+                          />
                         </Form.Group>
-                      )
-                    })
-                  }
+                      );
+                    })}
                   </div>
                   <Button
-                  onClick={() => addSubTaskField()}
+                    onClick={() => addSubTaskField()}
                     variant="primary"
                     style={{
                       backgroundColor: "#FFFFFF",
