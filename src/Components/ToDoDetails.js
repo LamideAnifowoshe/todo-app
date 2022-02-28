@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
-const ToDoDetails = ({ onClose, show }) => {
+const ToDoDetails = ({ onClose, show, onDelete }) => {
   return (
     <div>
       {" "}
@@ -72,7 +72,8 @@ const ToDoDetails = ({ onClose, show }) => {
                 <Modal.Footer>
                   <Button
                     variant="secondary"
-                    type="submit"
+                    type="delete"
+                    onClick={() => onDelete(todo.id)}
                     style={{
                       backgroundColor: "#053858",
                       borderRadius: "30px",
@@ -80,18 +81,6 @@ const ToDoDetails = ({ onClose, show }) => {
                     }}
                   >
                     Delete task
-                  </Button>
-
-                  <Button
-                    variant="secondary"
-                    type="submit"
-                    style={{
-                      backgroundColor: "#053858",
-                      borderRadius: "30px",
-                      width: "144px",
-                    }}
-                  >
-                    Add Sub-task
                   </Button>
                 </Modal.Footer>
               </Row>
