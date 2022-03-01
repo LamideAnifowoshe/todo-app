@@ -11,10 +11,7 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
 
-  const startTime = () => {
-    const date = new Date();
-    return setTime(date.getTime);
-  };
+  const date = new Date();
 
   React.useEffect(() => {
     let interval = null;
@@ -127,7 +124,11 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
 
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control type="text" value={startTime} />
+                    <Form.Control
+                      type="text"
+                      value={`${date.getHours()}:${date.getMinutes()}`}
+                      disabled
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicText">
