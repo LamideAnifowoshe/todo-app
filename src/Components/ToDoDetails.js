@@ -133,7 +133,7 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
 
                   <Form.Group className="mb-3" controlId="formBasicText">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control type="text" placeholder="None" />
+                    <Form.Control type="text" />
                   </Form.Group>
                 </Col>
 
