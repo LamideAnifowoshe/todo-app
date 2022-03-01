@@ -13,6 +13,8 @@ const ToDoDetails = ({ onClose, show, onDelete }) => {
 
   const date = new Date();
 
+  const calculateTimeLeft= () =>
+
   React.useEffect(() => {
     let interval = null;
 
